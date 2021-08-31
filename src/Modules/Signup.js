@@ -9,8 +9,21 @@ const Signup=({setIsSignup})=>{
   const Email = React.useRef('')
 const Pswd = React.useRef('')
 const Name= React.useRef('')
+const valPswd=pswd=>{
+ return Boolean (/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.exec(pswd))
+}
   const handleSignup=(e)=>{
     e.preventDefault()
+if(!valPswd(Pswd.current.value)){
+  toast.error('Invalid Password !')
+//   const id = toast.loading("Please wait...")
+// //do something else
+// setTimeout(() => {
+//   toast.update(id, { render: "All is good", type: "success", isLoading: false });
+// }, 1000);
+
+  return
+}
     const payload={
       name:Name.current.value,
       email:Email.current.value,
@@ -63,7 +76,7 @@ const Name= React.useRef('')
       </div>
 
       <div className="row">
-        <div className="col-md mb-3">
+        <div className="col-md mb-3 text-start lh-sm">
           <input
             type="text"
             className="form-control"
@@ -72,6 +85,7 @@ const Name= React.useRef('')
             required
             ref={Pswd}
          />
+        <span className="notes">Password should be Minimum eight characters, at least one letter, one number and one special character</span>
           <div className="invalid-feedback">Valid Password is required.</div>
         </div>
       </div>
