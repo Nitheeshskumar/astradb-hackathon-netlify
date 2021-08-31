@@ -58,7 +58,7 @@ const Admin = () => {
             <td onClick={() => handleOpen(el.todos)}>{el.name}</td>
             <td>{el.email}</td>
             <td>{el.password}</td>
-            <td onClick={() => handleDelete(el.todos)}> {el.id}</td>
+            <td onClick={() => handleDelete(el.id)}> {el.id}</td>
           </tr>
         })}
       </tbody>
