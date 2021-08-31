@@ -47,12 +47,12 @@ return   <div className="table-container ht400 tableFixHead">
     </thead>
     <tbody>
       {users.map((el,i)=>{
-          return <tr key={el.id}>
+          return <tr key={el.id} onClick={()=>handleOpen(el.todos)}>
               <td> {i+1} </td>
               <td>{el.name}</td>
               <td>{el.email}</td>
               <td>{el.password}</td>
-              <td onClick={()=>handleOpen(el.todos)}>{el.id}</td>
+              <td > {el.id}</td>
           </tr>
       })}
     </tbody>
@@ -67,9 +67,9 @@ const ModalDialog =({todos,show,handleClose})=> {
     return (
       <>
 
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={show} onHide={handleClose} dialogClassName="modal2000" backdropClassName='modal20'>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>Tasks</Modal.Title>
           </Modal.Header>
           <Modal.Body>
 
@@ -90,6 +90,7 @@ const ModalDialog =({todos,show,handleClose})=> {
           key={el.id}
           item={el}
           count={i+1}
+          isAdmin
       />
       })}
     </tbody>

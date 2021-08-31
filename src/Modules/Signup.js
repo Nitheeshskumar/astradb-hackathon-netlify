@@ -16,7 +16,7 @@ const Name= React.useRef('')
       email:Email.current.value,
       password:Pswd.current.value,
       id:uuid.v1(),
-      todos:[],isAdmin:'true'
+      todos:[]
     }
     toast.promise(createUser(payload), {
   pending: 'Creating User',
