@@ -13,3 +13,16 @@ export default Toast
 
 export const toaster = toast
 
+export const toastSuccess =(id,msg)=> toast.update(id, {
+  render: msg,
+  type: toast.TYPE.SUCCESS,
+  autoClose: 2500,
+  isLoading: false
+});
+
+export const toastError =(id,msg)=> toast.update(id, {
+  render: msg,
+  type: toast.TYPE.ERROR,
+  autoClose: 2500,
+  isLoading: false
+});

@@ -53,7 +53,7 @@ const toLogin=()=>history.push('./dashboard')
         <li><Link
               to="/login"
               onClick={handleLogClick}
-              className={`nav-link ${loginState.isLoggedIn?'text-danger':''}`}>{loginState.isLoggedIn? 'Logout':'Login'}</Link></li>
+              className={`nav-link ${loginState.isLoggedIn?'text-danger':''}`}>{loginState.isLoggedIn? 'Logout ':'Login'} </Link></li>
       </ul>
     </div>
   </nav>

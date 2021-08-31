@@ -2,8 +2,7 @@ import React from 'react'
 import signupimg from '../Assets/create-account.svg'
 import uuid from "node-uuid";
 import { createUser } from '../Services/UserServices';
-import { toast } from 'react-toastify';
-import Toast from '../Components/Toast';
+import Toast, { toastError, toastSuccess ,toaster} from '../Components/Toast';
 
 const Signup=({setIsSignup})=>{
   const Email = React.useRef('')
@@ -15,12 +14,7 @@ const valPswd=pswd=>{
   const handleSignup=(e)=>{
     e.preventDefault()
 if(!valPswd(Pswd.current.value)){
-  toast.error('Invalid Password !')
-//   const id = toast.loading("Please wait...")
-// //do something else
-// setTimeout(() => {
-//   toast.update(id, { render: "All is good", type: "success", isLoading: false });
-// }, 1000);
+  toaster.error('Invalid Password !')
 
   return
 }
@@ -31,15 +25,23 @@ if(!valPswd(Pswd.current.value)){
       id:uuid.v1(),
       todos:[]
     }
-    toast.promise(createUser(payload), {
-  pending: 'Creating User',
-  success: 'User Created. Login to Continue 👌',
-  error:  {render({data}){
-    return data.response.data + '🤯'}}
-}).then(res=>{console.log(res);
-  setIsSignup(false)
-})
 
+//     toast.promise(createUser(payload), {
+//   pending: 'Creating User',
+//   success: 'User Created. Login to Continue 👌',
+//   error:  {render({data}){
+//     return data.response.data + '🤯'}}
+// }).then(res=>{console.log(res);
+//   setIsSignup(false)
+// })
+ const id = toaster.loading("Creating User...")
+ createUser(payload).then(res=>{
+   console.log(res);
+   toastSuccess(id,'User Created. Login to Continue 👌');
+      setIsSignup(false)
+    }).catch(e=>{
+      toastError(id,e.response.data + '🤯')
+    })
   }
 
 

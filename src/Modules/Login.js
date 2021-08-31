@@ -3,7 +3,7 @@ import loginimg from '../Assets/login-img.png'
 import { useHistory } from "react-router-dom";
 // import Alert from './Components/Alert'
 import Signup from './Signup';
-import {toaster} from '../Components/Toast';
+import {toaster, toastError, toastSuccess} from '../Components/Toast';
 import { authenticate } from '../Services/UserServices';
 import { ManageLocalStorage } from '../Utils/ManageLocalStorage';
 import { GlobalDispatchContext } from '../ContextStore/ContextAPI';
@@ -18,17 +18,14 @@ const getFname=name=> 'Hello '+name.split(' ')[0]
 const handleSubmit=(e)=>{
   const payload={email:Email.current.value,password:Pswd.current.value}
 e.preventDefault()
-toaster.promise(authenticate(payload), {
-  pending: 'Loggin in ..',
-  success: {render({data}){return getFname(data.name) + '👌'}},
-
-  error: {render({data}){return data.response.data + '🤯'}}
-})
+const id = toaster.loading("Loggin in...")
+authenticate(payload)
 .then(res=>{console.log(res);
+  toastSuccess(id,getFname(res.name) + '👌')
   dispatch({type:'login',payload:res})
   ManageLocalStorage.set('userDetails',res)
   history.push('./dashboard')
-})
+}).catch(e=>toastError(id,e.response.data + '🤯'))
 
 }
 
