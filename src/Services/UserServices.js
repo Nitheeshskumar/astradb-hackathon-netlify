@@ -1,26 +1,26 @@
 import axios from 'axios'
 
-export const createUser = async (todo) => {
-    const response = await axios.post("/.netlify/functions/createUser", todo);
+export const createUser = async (body) => {
+    const response = await axios.post("/.netlify/functions/createUser", body);
     return response.data
   };
 
- export const updateUser = async (todo) => {
-    const response = await axios.post("/.netlify/functions/updateUser", todo);
+ export const updateUser = async (body) => {
+    const response = await axios.post("/.netlify/functions/updateUser", body);
     return response.data
   };
 
-  export const authenticate = async (todo) => {
-    const response = await axios.post("/.netlify/functions/authenticate", todo);
+  export const authenticate = async (body) => {
+    const response = await axios.post("/.netlify/functions/authenticate", body);
     return response.data
   };
-  export const getTodos = async (todo) => {
-    const response = await axios.post("/.netlify/functions/getTodos", todo);
+  export const getProviders = async (body) => {
+    const response = await axios.post("/.netlify/functions/getProviders", body);
     return response.data
   };
 
-  export const createTodos = async (todo) => {
-    const response = await axios.post("/.netlify/functions/createTodo", todo);
+  export const createProvider = async (body) => {
+    const response = await axios.post("/.netlify/functions/createProvider", body);
     return response.data
   };
 

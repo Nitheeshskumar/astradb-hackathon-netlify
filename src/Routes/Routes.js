@@ -6,8 +6,6 @@ import ContextStore from '../ContextStore/ContextStore'
 import MainWrapper from '../Modules/MainWrapper';
 const Login = React.lazy(()=>import('../Modules/Login'))
 const Dashboard = React.lazy(()=>import('../Modules/Dashboard/Dashboard'))
-const About = React.lazy(()=>import('../Modules/About'))
-const Motive = React.lazy(()=>import('../Modules/Motive'))
 const Admin = React.lazy(()=>import('../Modules/Admin/Admin'))
 
 const RootRoutes = () => (
@@ -27,9 +25,7 @@ const RootRoutes = () => (
             >
               <Switch>
                 <RouteGuard path="/login" xComponent={Login} />
-                <RouteGuard path="/about" xComponent={About} />
                 <RouteGuard path="/dashboard" xComponent={Dashboard} />
-                <RouteGuard path="/motive" xComponent={Motive} />
                 <RouteGuard path="/admin" xComponent={Admin} />
                 <Redirect from="*" to="/login" push />
                 </Switch>

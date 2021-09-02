@@ -16,7 +16,7 @@ const RootRouteGuard = ({ xComponent: Component, ...xProps }) => {
           }
           return <Component {...routeParams} key={routeParams.match.url} />;
         }
-        if (['/login','/about','/motive'].includes(pathName)) {
+        if (['/login'].includes(pathName)) {
           return <Component {...routeParams} key={routeParams.match.url} />;
         }
         return <Redirect to="/login" />;
