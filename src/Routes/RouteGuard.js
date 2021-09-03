@@ -10,16 +10,17 @@ const RootRouteGuard = ({ xComponent: Component, ...xProps }) => {
       {...xProps}
       render={routeParams => {
         const pathName = routeParams.match.path;
-        if (loginState.isLoggedIn) {
-          if (pathName === '/login') {
-            return <Redirect to="/dashboard" />;
-          }
-          return <Component {...routeParams} key={routeParams.match.url} />;
-        }
-        if (['/login'].includes(pathName)) {
-          return <Component {...routeParams} key={routeParams.match.url} />;
-        }
-        return <Redirect to="/login" />;
+        return <Component {...routeParams} key={routeParams.match.url} />;
+        // if (loginState.isLoggedIn) {
+        //   if (pathName === '/login') {
+        //     return <Redirect to="/dashboard" />;
+        //   }
+        //   return <Component {...routeParams} key={routeParams.match.url} />;
+        // }
+        // if (['/login'].includes(pathName)) {
+        //   return <Component {...routeParams} key={routeParams.match.url} />;
+        // }
+        // return <Redirect to="/login" />;
       }}
     />
   );

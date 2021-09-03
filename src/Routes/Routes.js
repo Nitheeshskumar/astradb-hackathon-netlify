@@ -5,8 +5,11 @@ import RouteGuard from './RouteGuard'
 import ContextStore from '../ContextStore/ContextStore'
 import MainWrapper from '../Modules/MainWrapper';
 const Login = React.lazy(()=>import('../Modules/Login'))
-const Dashboard = React.lazy(()=>import('../Modules/Dashboard/Dashboard'))
-const Admin = React.lazy(()=>import('../Modules/Admin/Admin'))
+const ServiceProviderContainer = React.lazy(()=>import('../Modules/ServiceProvider/ServiceProviderContainer'))
+const ProviderDetail = React.lazy(()=>import('../Modules/ServiceProvider/ServiceProviderDetail'))
+// const Admin = React.lazy(()=>import('../Modules/Admin/Admin'))
+const Appointments = React.lazy(()=>import('../Modules/Appointments/Appointments'))
+const Profile = React.lazy(()=>import('../Modules/Profile/Profile'))
 
 const RootRoutes = () => (
     <BrowserRouter>
@@ -24,10 +27,13 @@ const RootRoutes = () => (
               }
             >
               <Switch>
-                <RouteGuard path="/login" xComponent={Login} />
-                <RouteGuard path="/dashboard" xComponent={Dashboard} />
-                <RouteGuard path="/admin" xComponent={Admin} />
-                <Redirect from="*" to="/login" push />
+                {/* <RouteGuard path="/login" xComponent={Login} /> */}
+                <RouteGuard path="/dashboard" xComponent={ServiceProviderContainer} />
+                <RouteGuard path="/detail" xComponent={ProviderDetail} />
+                <RouteGuard path="/appointments" xComponent={Appointments} />
+                <RouteGuard path="/profile" xComponent={Profile} />
+                {/* <RouteGuard path="/admin" xComponent={Admin} /> */}
+                <Redirect from="*" to="/dashboard" push />
                 </Switch>
           </React.Suspense>
         </MainWrapper>

@@ -6,7 +6,7 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
 import './Assets/Main.css'
 import './Assets/Main.scss'
-import 'bulma/css/bulma.css';
+// import 'bulma/css/bulma.css';
 
 // import "todomvc-app-css/index.css";
 import RootRoutes from "./Routes/Routes";
