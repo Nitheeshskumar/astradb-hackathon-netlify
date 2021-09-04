@@ -1,4 +1,4 @@
-import linkedin from '../Assets/linkedin-logo.png'
+
 const About=()=>{
     return  <div className="about">
     <div className="container">
