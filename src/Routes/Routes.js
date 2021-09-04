@@ -5,11 +5,10 @@ import RouteGuard from './RouteGuard'
 import ContextStore from '../ContextStore/ContextStore'
 import MainWrapper from '../Modules/MainWrapper';
 const Login = React.lazy(()=>import('../Modules/Login'))
-const ServiceProviderContainer = React.lazy(()=>import('../Modules/ServiceProvider/ServiceProviderContainer'))
-const ProviderDetail = React.lazy(()=>import('../Modules/ServiceProvider/ServiceProviderDetail'))
-// const Admin = React.lazy(()=>import('../Modules/Admin/Admin'))
-const Appointments = React.lazy(()=>import('../Modules/Appointments/Appointments'))
-const Profile = React.lazy(()=>import('../Modules/Profile/Profile'))
+const Dashboard = React.lazy(()=>import('../Modules/Dashboard/Dashboard'))
+const About = React.lazy(()=>import('../Modules/About'))
+const Motive = React.lazy(()=>import('../Modules/Motive'))
+const Admin = React.lazy(()=>import('../Modules/Admin/Admin'))
 
 const RootRoutes = () => (
     <BrowserRouter>
@@ -27,13 +26,12 @@ const RootRoutes = () => (
               }
             >
               <Switch>
-                {/* <RouteGuard path="/login" xComponent={Login} /> */}
-                <RouteGuard path="/dashboard" xComponent={ServiceProviderContainer} />
-                <RouteGuard path="/detail" xComponent={ProviderDetail} />
-                <RouteGuard path="/appointments" xComponent={Appointments} />
-                <RouteGuard path="/profile" xComponent={Profile} />
-                {/* <RouteGuard path="/admin" xComponent={Admin} /> */}
-                <Redirect from="*" to="/dashboard" push />
+                <RouteGuard path="/login" xComponent={Login} />
+                <RouteGuard path="/about" xComponent={About} />
+                <RouteGuard path="/dashboard" xComponent={Dashboard} />
+                <RouteGuard path="/motive" xComponent={Motive} />
+                <RouteGuard path="/admin" xComponent={Admin} />
+                <Redirect from="*" to="/login" push />
                 </Switch>
           </React.Suspense>
         </MainWrapper>
