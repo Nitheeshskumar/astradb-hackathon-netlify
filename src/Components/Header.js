@@ -44,11 +44,11 @@ const toLogin=()=>history.push('./dashboard')
       <ul className="navbar-nav mr-auto">
 
           <li className="nav-item">
-           <Link to="/appointments"  className="nav-link">Appointments</Link>
+           <Link to="/motive"  className="nav-link">Deep Work</Link>
         </li>
         <li className="nav-item">
           {/* <a href="/about" className="nav-link">Reach Us</a> */}
-          <Link to="/profile"  className="nav-link">Profile</Link>
+          <Link to="/about"  className="nav-link">Reach Me</Link>
         </li>
         <li><Link
               to="/login"
