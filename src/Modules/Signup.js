@@ -2,7 +2,7 @@ import React from 'react'
 import signupimg from '../Assets/create-account.svg'
 import uuid from "node-uuid";
 import { createUser } from '../Services/UserServices';
-import Toast, { toastError, toastSuccess ,toaster} from '../Components/Toast';
+import  { toastError, toastSuccess ,toaster} from '../Components/Toast';
 
 const Signup=({setIsSignup})=>{
   const Email = React.useRef('')
@@ -95,7 +95,6 @@ if(!valPswd(Pswd.current.value)){
        Sign Up
       </button>
     </form>
-    <Toast/>
   </div>
 }
 
